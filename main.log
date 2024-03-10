@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.2.14)  10 MAR 2024 11:53
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.2.14)  10 MAR 2024 19:06
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1498,35 +1498,62 @@ LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <5.5> not available
 
 
 LaTeX Font Warning: Font shape `T1/cmr/m/n' in size <5.5> not available
-(Font)              size <5> substituted on input line 71.
+(Font)              size <5> substituted on input line 72.
 
 [3] [4]
-<Grafico_differenza_temperatura_rame_dev_scaled.pdf, id=58, 462.52798pt x 346.8
+<Grafico_differenza_temperatura_rame_dev_scaled.pdf, id=60, 462.52798pt x 346.8
 9601pt>
 File: Grafico_differenza_temperatura_rame_dev_scaled.pdf Graphic file (type pdf
 )
 <use Grafico_differenza_temperatura_rame_dev_scaled.pdf>
 Package pdftex.def Info: Grafico_differenza_temperatura_rame_dev_scaled.pdf  us
-ed on input line 139.
+ed on input line 142.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
-<Grafico_residui_rame_dev_scaled.pdf, id=59, 462.52798pt x 346.89601pt>
+<Grafico_residui_rame_dev_scaled.pdf, id=61, 462.52798pt x 346.89601pt>
 File: Grafico_residui_rame_dev_scaled.pdf Graphic file (type pdf)
 <use Grafico_residui_rame_dev_scaled.pdf>
 Package pdftex.def Info: Grafico_residui_rame_dev_scaled.pdf  used on input lin
-e 140.
+e 143.
 (pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
+ [5 <./Grafico_differenza_temperatura_rame_dev_scaled.pdf> <./Grafico_residui_r
+ame_dev_scaled.pdf>]
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 163.
 
 
-LaTeX Warning: Command \textdegree invalid in math mode on input line 158.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 158.
+LaTeX Warning: Command \textdegree invalid in math mode on input line 163.
 
 Missing character: There is no ° in font cmr10!
-[5
+<Grafico_differenze_temperatura_alluminio_dev.pdf, id=113, 462.52798pt x 346.89
+601pt>
+File: Grafico_differenze_temperatura_alluminio_dev.pdf Graphic file (type pdf)
+<use Grafico_differenze_temperatura_alluminio_dev.pdf>
+Package pdftex.def Info: Grafico_differenze_temperatura_alluminio_dev.pdf  used
+ on input line 168.
+(pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
+<Grafico_residui_alluminio_dev.pdf, id=114, 462.52798pt x 346.89601pt>
+File: Grafico_residui_alluminio_dev.pdf Graphic file (type pdf)
+<use Grafico_residui_alluminio_dev.pdf>
+Package pdftex.def Info: Grafico_residui_alluminio_dev.pdf  used on input line 
+169.
+(pdftex.def)             Requested size: 185.0079pt x 138.75594pt.
 
- <./Grafico_differenza_temperatura_rame_dev_scaled.pdf> <./Grafico_residui_rame
-_dev_scaled.pdf>] [6] (./main.aux)
+LaTeX Warning: Command \textdegree invalid in math mode on input line 180.
+
+
+LaTeX Warning: Command \textdegree invalid in math mode on input line 180.
+
+Missing character: There is no ° in font cmr10!
+
+Underfull \hbox (badness 1297) in paragraph at lines 181--183
+\T1/cmr/m/n/10 da cui, pro-pa-gan-do l'er-ro-re co-me pri-ma, si ot-tie-ne che 
+la
+ []
+
+[6
+
+ <./Grafico_differenze_temperatura_alluminio_dev.pdf> <./Grafico_residui_allumi
+nio_dev.pdf>] (./main.aux)
 
 LaTeX Font Warning: Size substitutions with differences
 (Font)              up to 1.97499pt have occurred.
@@ -1536,13 +1563,13 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52388 strings out of 478278
- 1159548 string characters out of 5850546
+ 52407 strings out of 478278
+ 1160281 string characters out of 5850546
  2057747 words of memory out of 5000000
- 69948 multiletter control sequences out of 15000+600000
+ 69961 multiletter control sequences out of 15000+600000
  515934 words of font info for 146 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 89i,13n,83p,750b,1344s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 89i,13n,83p,813b,1344s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}{c:/tex
 live/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}<c:/texlive/2021/
 texmf-dist/fonts/type1/public/newpx/NewPXMI.pfb><c:/texlive/2021/texmf-dist/fon
@@ -1556,10 +1583,10 @@ type1/public/cm-super/sfrm1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/publ
 ic/cm-super/sfrm1200.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-supe
 r/sfrm1728.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/cm-super/sfti1000
 .pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/newtx/txexs.pfb>
-Output written on main.pdf (6 pages, 187815 bytes).
+Output written on main.pdf (6 pages, 203076 bytes).
 PDF statistics:
- 197 PDF objects out of 1000 (max. 8388607)
- 130 compressed objects within 2 object streams
- 25 named destinations out of 1000 (max. 500000)
- 63 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 248 PDF objects out of 1000 (max. 8388607)
+ 152 compressed objects within 2 object streams
+ 29 named destinations out of 1000 (max. 500000)
+ 81 words of extra memory for PDF output out of 10000 (max. 10000000)
 

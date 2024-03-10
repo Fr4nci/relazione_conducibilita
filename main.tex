@@ -51,11 +51,12 @@ dove poniamo che $W$ sia pari a $\frac{VI}{2}$ siccome stiamo operando con un ci
 \begin{itemize}
 	\item Due barre cilindriche;
 	\item Un circuito di acqua corrente;
-	\item Generatore di corrente continua con display per regolare la differenza di potenziale e l'intensità di corrente emessa;
+	\item Generatore di corrente continua con display per visualizzare la differenza di potenziale e l'intensità di corrente emessa;
 	\item Un alimentatore chiuso su due resistenze in parallelo;
 \end{itemize}
 \textbf{Strumenti:}
 \begin{itemize}
+	\item Calibro ventesimale, con sensibilità pari a $\pm 0.005 cm$
 	\item Due termistori per la misura della temperatura;
 	\item Calcolatore con programma di acquisizione;
 	\item Scheda Arduino;
@@ -70,9 +71,10 @@ Prima di procedere con le misurazioni abbiamo misurato dal generatore di corrent
 	&i = (1.65 \pm 0.01) \, \text{\unit{A}}
 \end{align*}
 e abbiamo inoltre misurato il diametro delle due rispettive sbarre, pari a:
-\begin{equation*}
-	l_1  = (25.00 \pm 0.05) \, \unit{mm}
-\end{equation*}
+\begin{align*}
+	&l_1  = (25.00 \pm 0.05) \, \unit{mm} \\
+	&l_2  = (25.20 \pm 0.05) \, \unit{mm}
+\end{align*}
 
 \begin{wraptable}{l}{0.3\textwidth}
 \centering
@@ -94,7 +96,7 @@ $\pm 0.01$ & $\pm 0.01$ \\ \toprule
 \captionof{table}{Tabelle con un esempio di alcune misurazioni: la temperatura $T_0$ è la temperatura misurata del primo termistore che mantenevamo fisso nel primo buco (siccome la sbarra non era in equilibrio termico e dovevamo tenere conto di questa variazione) e la temperatura $T_1$ è la temperatura misurata dal secondo termistore}
 \end{wraptable}
 
-\noindent Per fare queste misurazioni ci siamo avvalsi di un calcolatore con un programma di acquisizione che si collegava, tramite una serie di librerie ad hoc, alla scheda di acquisizione con Arduino a cui erano collegati i termistori: i materiali, di cui noi dovevamo calcolare la conducibilità termica, possedevano vari buchi dove noi mettevamo entrambi i termistori per misurare i valori di temperatura, i quali venivano letti dal programma di acquisizione ogni $0.5 \ s$ circa nel momento in cui attivavamo l'acquisizione. \\
+\noindent Per fare queste misurazioni ci siamo avvalsi di un calcolatore con un programma di acquisizione che si collegava, tramite una serie di librerie ad hoc, alla scheda di acquisizione con Arduino a cui erano collegati i termistori: i materiali, di cui noi dovevamo calcolare la conducibilità termica, possedevano vari buchi dove noi mettevamo entrambi  i termistori per misurare, attivando il processo di lettura dal programma predisposto per questa esperienza sul calcolare, per far misurare i valori di temperatura alla scheda di Arduino che campionava il valore ogni $0.5 \ s$ circa. \\
 Siccome la barra man mano che si procedeva con l'esperimento si riscaldava sempre di più, noi abbiamo mantenuto un termistore nel primo buco che avevamo, in maniera tale da misurare continuamente la temperatura $T_0$. \\
 Riporto una tabella d'esempio per mostrare in che forma si presentavano i dati raccolti qua di fianco, qua di lato (precisamente, i dati qua mostrati sono alcuni quelli misurati a $\Delta x = 4.26 \pm 0.01 \, \unit{cm}$)
 \section{Analisi delle misure}
@@ -109,9 +111,9 @@ Siccome la temperatura $T_0$ aumentava nel tempo (poiché non aveva ancora raggi
 	T_i - T_0 = -\frac{W}{\lambda S}(x_i-x_0) \implies \Delta T = --\frac{W}{\lambda S}\Delta x_i
 \end{equation}
 quindi faremo il fit del delle differenze di temperature rispetto alla differenze di lunghezza. \\
-Proprio per questo abbiamo realizzato un programma in Python in grado di estrarre i dati da ogni file di estensione \emph{.txt} da cui si prendeva la temperatura misurata dai due termistori e si considerava la differenza di queste due. Per semplificare meglio, riporto un esempio di analisi dei dati per chiarire meglio il tipo di interpolazioni che effettuavamo:
+Siccome il programma di acquisizione dei dati prendeva tante misure, abbiamo deciso che, per ogni file prodotto, si prendevano le ultime $n$ misure e se ne considerava la differenza fra la temperatura $T_0$, misurata dal primo termistore (quello che si teneva fisso), e la temperatura $T_1$, la cui posizione si faceva variare. Di queste differenze si considerava poi la media aritmetica. Introdurre una media pesata si è scartata per vari motivi: in primis, le ultime misure solitamente presentano oscillazioni quasi nulle, quindi tutte le misurazioni avrebbero quasi lo stesso \emph{peso}, ma poi, a priori, non sappiamo quantificare, siccome non conosciamo effettivamente la misura della temperatura del materiale in quel punto, il grado di precisione con cui abbiamo misurato. \\
+Per fare ciò abbiamo realizzato un programma in Python in grado di estrarre i dati da ogni file di estensione \emph{.txt} da cui si prendeva la temperatura misurata dai due termistori e si considerava la differenza di queste due. Per semplificare meglio, riporto un esempio di analisi dei dati per chiarire meglio il tipo di interpolazioni che effettuavamo:
 
-\clearpage
 \begin{wraptable}{r}{0.5\textwidth}
 	\centering	
 	\begin{tabular}{c c c} \toprule
@@ -131,14 +133,15 @@ Proprio per questo abbiamo realizzato un programma in Python in grado di estrarr
 	\sigma_\mu = \sqrt{\frac{1}{n(n-1)} \sum_{k = 0}^{n} (x_k - \mu)^2}
 \end{equation}
 dove con $\mu$ indichiamo media dei dati. \\
-Il problema di questo approccio è il fatto che disegnando il grafico con i relativi errori si osserva che questi sono enormemente sottostimati: il motivo di ciò può essere il fatto che nel nostro apparato sperimentale erano presenti troppe sorgenti di errori sistematici: in primis, la sbarra \emph{reale} ha delle dispersioni di energia (il che potrebbe anche spiegare il motivo per cui la maggior parte delle misure sono inferiori al valore teorico) e i due termistori possono subire delle fluttuazioni del valore da loro misurato a causa di come questi sono fatti (e ad eventuali difetti di fabbricazione) e per il fatto che probabilmente i termistori con cui avevamo fatto non fossero dei termistori di precisione.
+Il problema di questo approccio è il fatto che disegnando il grafico con i relativi errori si osserva che questi sono enormemente sottostimati e il motivo di ciò può essere il fatto che nel nostro apparato sperimentale erano presenti troppe sorgenti di errori sistematici che non possono essere trascurati: in primis, la sbarra \emph{reale} ha delle dispersioni di energia (il che potrebbe anche spiegare il motivo per cui la maggior parte delle misure sono inferiori al valore teorico) e i due termistori possono subire delle fluttuazioni del valore da loro misurato a causa di come questi sono fatti (e ad eventuali difetti di fabbricazione) e per il fatto che probabilmente i termistori con cui avevamo fatto non fossero dei termistori di precisione.
 
 
 \begin{wrapfigure}{r}{0.5\textwidth}	
+	\vspace{-1cm}
 	\centering
 	\includegraphics[scale=0.4]{Grafico_differenza_temperatura_rame_dev_scaled.pdf}
 	\includegraphics[scale=0.4]{Grafico_residui_rame_dev_scaled.pdf}
-	\captionof{figure}{Immagine dei nostri grafici in cui si utilizza la deviazione della media aritmetica per stimare le incertezze sulla media delle differenze di temperatura: gli errori sono troppo \emph{piccoli} (fatto che è un evidente sintomo di una stima patologica che sottostima l'incertezza effettiva) e, nel caso specifico di questa immagine, abbiamo moltiplicato di un fattore $4$ gli errori per poterli farli vedere nell'immagine (e nel grafico $\Delta T \, - \, \Delta x$ rimangono comunque poco visibili) }
+	\captionof{figure}{Immagine dei nostri grafici in cui si utilizza la deviazione della media aritmetica per stimare le incertezze sulla media delle differenze di temperatura: gli errori sono troppo \emph{piccoli} (fatto che è un evidente sintomo di una stima patologica che sottostima l'incertezza effettiva) e, nel caso specifico di questa immagine, abbiamo moltiplicato di un fattore $4$ gli errori per poterli farli vedere nell'immagine (e nel grafico $\Delta T \, - \, \Delta x$ rimangono comunque poco visibili)}
 \end{wrapfigure}
 
 
@@ -155,6 +158,33 @@ da cui si ricava che
 \begin{equation*}
 	\lambda = (3.0 \pm 0.2) * 10^2
 \end{equation*}
-che rispetto al valore atteso (sapendo che la conducibilità del rame è $~400 \, \unit{W/m^{-1}°C^{-1}}$) dista circa $5\sigma_{\lambda}$. Sebbene disti relativamente tanto dal valore teorico, potrebbe essere quasi ragionevole considerando tutte le possibili fonte di errori (tutte le varie dispersioni di energia e anche il problema dei termistori). \\
-Passiamo adesso all'analisi dei dati dell'alluminio: questi, così come quelli del rame, soffrono sempre il medesimo problema della stima degli errori
+\clearpage
+
+che rispetto al valore atteso (sapendo che la conducibilità del rame è $~400 \, \unit{W/m^{-1}°C^{-1}}$) dista circa $5\sigma_{\lambda}$. Sebbene disti relativamente tanto dal valore teorico, potrebbe essere un valore quasi ragionevole considerando tutte le possibili fonte di dissipazioni presenti nella nostra strumentazione. \\
+Passiamo adesso all'analisi dei dati dell'alluminio: questi, così come quelli del rame, soffrono sempre il medesimo problema riguardo le incertezze: osservando i grafici (riportati qua sotto a sinistra) si osserva che, usando la deviazione standard della media, se non fosse per qualche misurazione, avremmo dei dati abbastanza ragionevoli, 
+
+\begin{wrapfigure}{l}{0.4\textwidth}
+	\centering
+	\includegraphics[scale=0.4]{Grafico_differenze_temperatura_alluminio_dev.pdf}
+	\includegraphics[scale=0.4]{Grafico_residui_alluminio_dev.pdf}
+	\captionof{figure}{Immagine dei grafici e dei residui delle misurazioni effettuate }
+\end{wrapfigure}
+
+tuttavia, dal grafico dei residui si osserva che le nostre misure oscillano troppo poco attorno allo zero, il che ci porta a far ipotizzare che anche qua siano presenti errori sistematici, fatto avvalorato dal fatto che le misurazioni con il rame e con l'alluminio sono state effettuate con la stessa strumentazione e la stessa metodologia, pertanto è quasi certo che siano presenti le stesse sorgenti di errori sistematici.	\\
+La stima del $\chi^2$ anche qua non produce un risultato molto apprezzabile, infatti risulta essere pari a
+$$
+	\chi^2 \approx 795
+$$
+che è spropositato rispetto ai gradi di libertà del fit. Osserviamo comunque la stima del coefficiente angolare della retta:
+\begin{equation}
+	m = (-33 \pm 1) \, \unit{°C/m}
+\end{equation}
+da cui, propagando l'errore come prima, si ottiene che la conducibilità termica è:
+\begin{equation}
+	\lambda = (126 \pm 5)
+\end{equation}
+
+\section{Conclusioni}
+
+L'esperienza non può considerarsi un successo, siccome il risultato che abbiamo ottenuto si discosta di molto dal valore teorico, tuttavia è stata sicuramente un'esperienza istruttiva perché ci ha fatto fare i conti con gli errori sistematici.
 \end{document}

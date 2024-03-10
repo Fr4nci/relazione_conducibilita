@@ -85,19 +85,19 @@ for num in range(len(data_delta_x["delta_x"])):
 del(data_delta_x)
 print(len(delta_x_star["delta_x"]))
 plt.figure("Dati alluminio")
-data_x.pop(2)
-sigma_x.pop(2)
-delta_x_star["delta_x"].pop(2)
-delta_x_star["err"].pop(2)
-delta_x_star["delta_x"].pop(1)
-delta_x_star["err"].pop(1)
-data_x.pop(1)
-sigma_x.pop(1)
-delta_x_star["delta_x"].pop(0)
-delta_x_star["err"].pop(0)
-data_x.pop(0)
-sigma_x.pop(0)
-popt, pconv = curve_fit(modello, delta_x_star["delta_x"], data_x)
+# data_x.pop(2)
+# sigma_x.pop(2)
+# delta_x_star["delta_x"].pop(2)
+# delta_x_star["err"].pop(2)
+# delta_x_star["delta_x"].pop(1)
+# delta_x_star["err"].pop(1)
+# data_x.pop(1)
+# sigma_x.pop(1)
+# delta_x_star["delta_x"].pop(0)
+# delta_x_star["err"].pop(0)
+# data_x.pop(0)
+# sigma_x.pop(0)
+popt, pconv = curve_fit(modello, delta_x_star["delta_x"], data_x, absolute_sigma=True)
 m_hat = popt
 sigma_m = np.sqrt(pconv.diagonal())
 x = np.linspace(0, 0.50)
@@ -105,6 +105,7 @@ plt.errorbar(delta_x_star["delta_x"], data_x, fmt='o', color="black", yerr=sigma
 plt.plot(x, modello(x, m_hat))
 plt.xlabel(r"$\Delta x$ [m]")
 plt.ylabel(r"$T_i [C]$")
+plt.savefig("Grafico_differenze_temperatura_alluminio_dev.pdf")
 plt.show() # 8 e 12
 plt.figure("Grafico residui")
 # Inizializza res["err"] come un array vuoto
@@ -115,17 +116,30 @@ for el in range(len(delta_x_star["delta_x"])):
     res["value"].append(data_x[el] - modello(delta_x_star["delta_x"][el], m_hat))
     res["err"].append(sigma_x[el])
 
+print(f"m_hat: {m_hat} +- {sigma_m}")
 # Converti res["err"] in un array NumPy
 res["value"] = np.array(res["value"])
 res["err"] = np.array(res["err"])
 res["value"] = np.squeeze(np.array(res["value"]))
 plt.errorbar(delta_x_star["delta_x"], res["value"], yerr=res["err"], fmt='o', color="green")
 plt.axhline(0, xmin=0, xmax=1, color="orange")
+plt.savefig("Grafico_residui_alluminio_dev.pdf")
 plt.show()
 chi_quadro = 0
 for el in range(len(res["value"])):
     chi_quadro = chi_quadro + (res["value"][el]/sigma_x[el])**2
 print(f"Il chi quadro risulta essere: {chi_quadro}")
+S = np.pi * (2.520 * 10 ** (-2)) ** 2
+V = 10.2
+sigma_V = 0.1
+I = 1.65
+sigma_i = 0.01
+sigma_r = 0.05 * 10 ** (-3)
+r = 25 * 10 ** (-3)
+print(f"L'errore su m è: {sigma_m}")
+_lambda = -(V * I)/(2 * m_hat[0] * S)
+print(f"Il valore della conducibilità risulta pari {_lambda}")
+print(f"L'errore su lambda è: {_lambda * np.sqrt((sigma_i/I) ** 2 + (sigma_V/V) ** 2 + (sigma_m/m_hat) ** 2 + 4*(sigma_r/r) ** 2)}")
 #file = np.loadtxt("dati_delta_x.txt")
 #for x in file[0]:
 #    x_1["val"].append(x)
