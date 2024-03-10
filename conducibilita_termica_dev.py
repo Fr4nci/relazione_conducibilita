@@ -48,7 +48,6 @@ def safe_extraction(lst, arr1, arr2):
     #_max = 0
     #_min = 0
     first_cicle = True
-    print(f"T0 \t T1 \t T_0 - T_1")
     for files in sorted(os.listdir(lst)):
         acc = 0
         data = extract(lst+files)
@@ -130,6 +129,7 @@ I = 1.65
 sigma_i = 0.01
 sigma_r = 0.05 * 10 ** (-3)
 r = 25 * 10 ** (-3)
+print(f"m è pari a {m_hat}")
 print(f"L'errore su m è: {sigma_m}")
 _lambda = -(V * I)/(2 * m_hat[0] * S)
 print(f"Il valore della conducibilità risulta pari {_lambda}")
