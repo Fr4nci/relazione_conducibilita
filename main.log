@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.2.14)  10 MAR 2024 23:02
+This is pdfTeX, Version 3.141592653-2.6-1.40.23 (TeX Live 2021/W32TeX) (preloaded format=pdflatex 2022.2.14)  11 MAR 2024 17:36
 entering extended mode
  \write18 enabled.
  %&-line parsing enabled.
@@ -1239,7 +1239,7 @@ LaTeX Info: Redefining \Bbbk on input line 2175.
 LaTeX Info: Redefining \not on input line 2457.
 LaTeX Info: Redefining \textsquare on input line 2472.
 LaTeX Info: Redefining \openbox on input line 2474.
-))
+)
 (c:/texlive/2021/texmf-dist/tex/latex/circuitikz/circuitikz.sty
 Package: circuitikz 2022/02/04{} The CircuiTikz circuit drawing package version
  1.4.6
@@ -1315,7 +1315,7 @@ braryfpu.code.tex
 \pgfcirc@labelshift=\dimen344
 )
 (c:/texlive/2021/texmf-dist/tex/generic/circuitikz/pgfcirccurrent.tex)
-(c:/texlive/2021/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex))
+(c:/texlive/2021/texmf-dist/tex/generic/circuitikz/pgfcircflow.tex)))
 
 Package biblatex Warning: 'babel/polyglossia' detected but 'csquotes' missing.
 (biblatex)                Loading 'csquotes' recommended.
@@ -1522,7 +1522,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 100--104
  []
 
 [4]
-<Grafico_differenza_temperatura_rame_dev_scaled.pdf, id=64, 462.52798pt x 346.8
+<Grafico_differenza_temperatura_rame_dev_scaled.pdf, id=65, 462.52798pt x 346.8
 9601pt>
 File: Grafico_differenza_temperatura_rame_dev_scaled.pdf Graphic file (type pdf
 )
@@ -1535,7 +1535,7 @@ Overfull \hbox (36.71301pt too wide) in paragraph at lines 145--146
  [][] 
  []
 
-<Grafico_residui_rame_dev_scaled.pdf, id=65, 462.52798pt x 346.89601pt>
+<Grafico_residui_rame_dev_scaled.pdf, id=66, 462.52798pt x 346.89601pt>
 File: Grafico_residui_rame_dev_scaled.pdf Graphic file (type pdf)
 <use Grafico_residui_rame_dev_scaled.pdf>
 Package pdftex.def Info: Grafico_residui_rame_dev_scaled.pdf  used on input lin
@@ -1568,7 +1568,7 @@ LaTeX Warning: Command \textdegree invalid in math mode on input line 175.
 Missing character: There is no ° in font cmr10!
 [6 <./Grafico_differenza_temperatura_rame_dev_scaled.pdf> <./Grafico_residui_ra
 me_dev_scaled.pdf>]
-<Grafico_differenze_temperatura_alluminio_dev.pdf, id=127, 462.52798pt x 346.89
+<Grafico_differenze_temperatura_alluminio_dev.pdf, id=128, 462.52798pt x 346.89
 601pt>
 File: Grafico_differenze_temperatura_alluminio_dev.pdf Graphic file (type pdf)
 <use Grafico_differenze_temperatura_alluminio_dev.pdf>
@@ -1580,7 +1580,7 @@ Overfull \hbox (36.71301pt too wide) in paragraph at lines 182--183
  [][] 
  []
 
-<Grafico_residui_alluminio_dev.pdf, id=128, 462.52798pt x 346.89601pt>
+<Grafico_residui_alluminio_dev.pdf, id=129, 462.52798pt x 346.89601pt>
 File: Grafico_residui_alluminio_dev.pdf Graphic file (type pdf)
 <use Grafico_residui_alluminio_dev.pdf>
 Package pdftex.def Info: Grafico_residui_alluminio_dev.pdf  used on input line 
@@ -1612,11 +1612,11 @@ Package logreq Info: Writing requests to 'main.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 52554 strings out of 478278
- 1163207 string characters out of 5850546
- 2054892 words of memory out of 5000000
- 70081 multiletter control sequences out of 15000+600000
- 527891 words of font info for 176 fonts, out of 8000000 for 9000
+ 52565 strings out of 478278
+ 1163334 string characters out of 5850546
+ 2054879 words of memory out of 5000000
+ 70091 multiletter control sequences out of 15000+600000
+ 528580 words of font info for 177 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  89i,13n,83p,1020b,1344s stack positions out of 5000i,500n,10000p,200000b,80000s
 {c:/texlive/2021/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{c:/texl
@@ -1636,11 +1636,12 @@ exlive/2021/texmf-dist/fonts/type1/public/cm-super/sfrm1728.pfb><c:/texlive/202
 1/texmf-dist/fonts/type1/public/cm-super/sfti0800.pfb><c:/texlive/2021/texmf-di
 st/fonts/type1/public/cm-super/sfti1000.pfb><c:/texlive/2021/texmf-dist/fonts/t
 ype1/public/cm-super/sftt0800.pfb><c:/texlive/2021/texmf-dist/fonts/type1/publi
-c/newtx/txexs.pfb>
-Output written on main.pdf (8 pages, 294974 bytes).
+c/cm-super/sfxc1000.pfb><c:/texlive/2021/texmf-dist/fonts/type1/public/newtx/tx
+exs.pfb>
+Output written on main.pdf (8 pages, 307198 bytes).
 PDF statistics:
- 289 PDF objects out of 1000 (max. 8388607)
- 181 compressed objects within 2 object streams
+ 294 PDF objects out of 1000 (max. 8388607)
+ 184 compressed objects within 2 object streams
  34 named destinations out of 1000 (max. 500000)
  81 words of extra memory for PDF output out of 10000 (max. 10000000)
 
