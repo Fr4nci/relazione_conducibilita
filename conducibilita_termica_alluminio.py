@@ -44,7 +44,7 @@ def safe_extraction(lst, arr1, arr2):
     acc = 0
     _dev = 0
     m = 0
-    n = 2
+    n = 20
     for files in sorted(os.listdir(lst)):
         data = extract(lst+files)
         for num in range(len(data["Temp_0"])-n, len(data["Temp_0"])):
